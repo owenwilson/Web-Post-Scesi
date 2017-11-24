@@ -12,23 +12,25 @@
     <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper #546e7a blue-grey darken-1">
-            <a href="#!" class="brand-logo"><i class="material-icons blue-text">cloud</i>Investigacion</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="index.html" class="tooltipped" data-delay="50" data-tooltip="Pagina Principal"><i class="large material-icons left red-text">home</i>Inicio</a></li>
-                <li><a href="eventos.html" class="tooltipped" data-delay="50" data-tooltip="Informacion para Eventos Proximos"><i class="large material-icons left black-text">contact_mail</i>Eventos</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="index.html"><i class="large material-icons left red-text">home</i>Inicio</a></li>
-                <li><a href="eventos.html"><i class="large material-icons black-text">contact_mail</i>Eventos</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-
+<header>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper #546e7a blue-grey darken-1">
+                <a href="#!" class="brand-logo"><i class="material-icons blue-text">cloud</i>Investigacion</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.html" class="tooltipped" data-delay="50" data-tooltip="Pagina Principal"><i class="large material-icons left red-text">home</i>Inicio</a></li>
+                    <li><a href="eventos.html" class="tooltipped" data-delay="50" data-tooltip="Informacion para Eventos Proximos"><i class="large material-icons left black-text">contact_mail</i>Eventos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--moviendo sideNav fuera de navbar-fixed-->
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="index.html"><i class="material-icons left red-text">home</i>Inicio</a></li>
+                    <li><a href="eventos.html"><i class="material-icons black-text">contact_mail</i>Eventos</a></li>
+                </ul>
+</header>
 <div class="parallax-container">
    <div class="parallax"><img src="image/investigaciones.jpg"></div>
 </div>

@@ -12,9 +12,10 @@
     <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
+<header>
 <div class="navbar-fixed">
     <nav>
-        <div class="nav-wrapper #546e7a blue-grey darken-1">
+        <div class="nav-wrapper  blue-grey darken-1">
             <a href="#!" class="brand-logo" style="margin-left: .5em;"><i class="material-icons blue-text">cloud</i>Proyecto</a>
             <a href="#!" data-activates="mobile-demo" class="button-collapse" style="margin-left: .5em;"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
@@ -24,16 +25,18 @@
                 <li><a href="formulario.html" class="tooltipped" data-delay="50" data-tooltip="Agrega tus datos para registrarte"><i class="large material-icons left orange-text">person_add</i>Registrate</a></li>
                 <li><a href="sesion.html" class="tooltipped" data-delay="50" data-tooltip="Dame Click si tienes una cuenta"><i class="large material-icons left blue-text">lock</i>Iniciar Sesion</a></li>
             </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="index.html"><i class="material-icons left red-text">home</i>Inicio</a></li>
-                <li><a href="investigaciones.html"><i class="large material-icons left grey-text">public</i>Investigaciones</a></li>
-                <li><a href="eventos.html"><i class="large material-icons left black-text">contact_mail</i>Eventos</a></li>
-                <li><a href="formulario.html"><i class="large material-icons left orange-text">person_add</i>Registrate</a></li>
-                <li><a href="sesion.html"><i class="large material-icons left blue-text">lock</i>Iniciar Sesion</a></li>
-            </ul>
         </div>
     </nav>
 </div>
+            <!--mueva el side-nav fuera de navbar-fixed-->
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="index.html"><i class="material-icons left red-text">home</i>Inicio</a></li>
+                <li><a href="investigaciones.html"><i class="material-icons left grey-text">public</i>Investigaciones</a></li>
+                <li><a href="eventos.html"><i class="material-icons left black-text">contact_mail</i>Eventos</a></li>
+                <li><a href="formulario.html"><i class="material-icons left orange-text">person_add</i>Registrate</a></li>
+                <li><a href="sesion.html"><i class="material-icons left blue-text">lock</i>Iniciar Sesion</a></li>
+            </ul>
+</header>
 <div class="container">
     <div class="row">
         <div class="col s12 m4">
@@ -138,8 +141,8 @@
         </ul>
     </div>
 </div>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/materialize.min.js"></script>
     <script>
     $(document).ready(function(){
         $(".button-collapse").sideNav();
