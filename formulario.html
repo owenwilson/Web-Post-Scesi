@@ -30,48 +30,97 @@
                 <li><a href="eventos.html"><i class="material-icons left black-text">contact_mail</i>Eventos</a></li>
             </ul>
 </header>
+
+<!--FORMULARIO REGISTRO-->
+
 <div class="row">
-   <form class="col s12">
+   <form class="col s12" method="POST" action="config/prueba.php">
+       <!--NOMBRE USUARIO-->
      <div class="row">
        <div class="input-field col s6">
          <i class="material-icons prefix">account_circle</i>
-         <input id="first_name" type="text" class="validate">
+         <input id="first_name" type="text" class="validate" name="nombre" required>
          <label for="first_name">Nombre</label>
        </div>
+
+       <!--APELLIDO-->
        <div class="input-field col s6">
          <i class="material-icons prefix">account_circle</i>
-         <input id="last_name" type="text" class="validate">
+         <input id="last_name" type="text" class="validate" name="apellido" required>
          <label for="last_name">Apellidos</label>
        </div>
      </div>
+
+     <!--CIUDAD-->
      <div class="row">
        <div class="input-field col s12">
            <i class="material-icons prefix">location_city</i>
-           <input id="city" type="text" class="validate">
+           <select name="ciudad">
+             <option value="cochabamba">COCHABAMBA</option>
+             <option value="santa cruz">SANTA CRUZ</option>
+             <option value="tarija">TARIJA</option>
+             <option value="beni">BENI</option>
+             <option value="pando">PANDO</option>
+             <option value="oruro">ORURO</option>
+             <option value="la paz">LA PAZ</option>
+             <option value="sucre">SUCRE</option>
+             <option value="potosi">POTOSI</option>
+           </select>
          <label for="disabled">Ciudad</label>
        </div>
      </div>
+
+     <!--CLAVE DE USUARIO-->
      <div class="row">
        <div class="input-field col s12">
          <i class="material-icons prefix">security</i>
-         <input id="password" type="password" class="validate">
-         <label for="password">Constrasenia</label>
+         <input id="password" type="password" class="validate" name="contrasena" required>
+         <label for="password">Clave Nueva Usuario</label>
        </div>
      </div>
+
+      <!--ROL USUARIO-->
+     <div class="row">
+        <div class="input-field col s12">
+          <select name="rol">
+            <option value="administrador">ADMINISTRADOR</option>
+            <option value="empleado">EMPLEADO</option>
+            <option value="invitado">INVITADO</option>
+          </select>
+          <label>ROL</label>
+       </div>
+    </div>
+
+      <!--FUNCION USUARIO-->
+    <div class="row">
+      <div class="input-field col s12">
+         <select name="funcion">
+           <option value="contabilidad">CONTABILIDAD</option>
+           <option value="almacen">ALMACEN</option>
+           <option value="pagos">PAGOS</option>
+         </select>
+         <label>FUNCION</label>
+      </div>
+  </div>
+     <!--CORREO ELECTRONICO-->
      <div class="row">
        <div class="input-field col s12">
          <i class="material-icons prefix">contact_mail</i>
-         <input id="email" type="email" class="validate">
+         <input id="email" type="email" class="validate" name="correo" required>
          <label for="email">Correo Electronico</label>
        </div>
      </div>
      <div class="row">
        <div class="input-field col s12">
          <i class="material-icons prefix">contact_mail</i>
-           <input id="Email" type="email" class="validate">
+           <input id="Email" type="email" class="validate" required>
            <label for="email">Repita el Correo Electronico</label>
        </div>
      </div>
+
+
+
+     <!--BOTON REGISTRAR-->
      <button class="btn waves-effect waves-light" type="submit" name="action">Registrarse
     <i class="material-icons right">send</i>
   </button>
@@ -83,6 +132,9 @@
 $(document).ready(function(){
     $(".button-collapse").sideNav();
 });
+$(document).ready(function() {
+    $('select').material_select();
+  });
 </script>
 </body>
 </html>

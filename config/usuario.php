@@ -5,15 +5,16 @@ session_start();
 }else {
     echo "No tiene acceso a esta pagina";
 }*/
-include 'funcion.php';
-verificar_sesion();
+//include 'funcion.php';
+//require_once 'controler.php';
+//verificar_sesion();
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="description" content="Sitema De Sesiones Para Investigadores">
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
     <meta name="author" content="Owen Wilson">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TBD PROYECTO</title>
@@ -38,6 +39,15 @@ verificar_sesion();
             <li><a href="index.html"><i class="material-icons left red-text">home</i>Inicio</a></li>
           </ul>
 </header>
+<table>
+    <div class="">
+        <tr>
+            <?php
+            echo $pid;
+            ?>
+        </tr>
+    </div>
+</table>
     <form method="POST" action="destruir.php">
       <p class="center-align">
         <button class="waves-effect waves-light btn" type="submit" name="salir"><i class="material-icons right">send</i>Cerrar Sesion </Cerrar></button>

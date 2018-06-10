@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="sesion_tbd" id="Project_20d95cd" template="Default" database="PostgreSQL" >
+	<schema name="sesion_tbd" schemaname="sesion_tbd" >
+		<table name="funcion" >
+			<column name="id_funcion" type="integer" jt="4" mandatory="y" />
+			<column name="funcion" type="varchar" length="50" jt="12" mandatory="y" />
+			<index name="pk_funcion" unique="NORMAL" >
+				<column name="id_funcion" />
+			</index>
+			<index name="pk_funcion_0" unique="PRIMARY_KEY" >
+				<column name="id_funcion" />
+			</index>
+		</table>
+		<table name="funcion_iu" >
+			<column name="tabla_funcion" type="integer" jt="4" mandatory="y" />
+			<column name="tabla_iu" type="integer" jt="4" />
+			<index name="idx_funcion_iu" unique="NORMAL" >
+				<column name="tabla_funcion" />
+			</index>
+			<index name="idx_funcion_iu_0" unique="NORMAL" >
+				<column name="tabla_iu" />
+			</index>
+			<fk name="fk_funcion_iu_funcion" to_schema="sesion_tbd" to_table="funcion" delete_action="cascade" update_action="cascade" >
+				<fk_column name="tabla_funcion" pk="id_funcion" />
+			</fk>
+			<fk name="fk_funcion_iu_iu" to_schema="sesion_tbd" to_table="iu" delete_action="cascade" update_action="cascade" >
+				<fk_column name="tabla_iu" pk="id_iu" />
+			</fk>
+		</table>
+		<table name="iu" >
+			<column name="id_iu" type="integer" jt="4" mandatory="y" />
+			<column name="iu" type="varchar" length="50" jt="12" mandatory="y" />
+			<index name="pk_iu" unique="NORMAL" >
+				<column name="id_iu" />
+			</index>
+			<index name="pk_iu_0" unique="PRIMARY_KEY" >
+				<column name="id_iu" />
+			</index>
+		</table>
+		<table name="rol" >
+			<column name="id_rol" type="integer" jt="4" mandatory="y" />
+			<column name="rol" type="varchar" length="50" jt="12" mandatory="y" />
+			<index name="pk_rol" unique="UNIQUE" >
+				<column name="id_rol" />
+			</index>
+			<index name="pk_rol_0" unique="PRIMARY_KEY" >
+				<column name="id_rol" />
+			</index>
+		</table>
+		<table name="rol_funcion" >
+			<column name="tabla_rol" type="integer" jt="4" mandatory="y" />
+			<column name="tabla_funcion" type="integer" jt="4" mandatory="y" />
+			<column name="fecha_inicio" type="date" jt="91" />
+			<column name="fecha_fin" type="date" jt="91" />
+			<index name="idx_rol_funcion" unique="NORMAL" >
+				<column name="tabla_rol" />
+			</index>
+			<index name="idx_rol_funcion_0" unique="NORMAL" >
+				<column name="tabla_funcion" />
+			</index>
+			<fk name="fk_rol_funcion_rol" to_schema="sesion_tbd" to_table="rol" delete_action="cascade" update_action="cascade" >
+				<fk_column name="tabla_rol" pk="id_rol" />
+			</fk>
+			<fk name="fk_rol_funcion_funcion" to_schema="sesion_tbd" to_table="funcion" delete_action="cascade" update_action="cascade" >
+				<fk_column name="tabla_funcion" pk="id_funcion" />
+			</fk>
+		</table>
+		<table name="sesion" >
+			<column name="id_sesion" type="serial" jt="4" mandatory="y" />
+			<column name="usuario_sesion" type="serial" jt="4" mandatory="y" />
+			<column name="salida" type="date" jt="91" />
+			<column name="entrada" type="date" jt="91" />
+			<column name="pid" type="integer" jt="4" mandatory="y" />
+			<index name="pk_sesion" unique="PRIMARY_KEY" >
+				<column name="id_sesion" />
+			</index>
+			<index name="idx_sesion" unique="NORMAL" >
+				<column name="usuario_sesion" />
+			</index>
+		</table>
+		<table name="usuario" >
+			<column name="id_usuario" type="serial" jt="4" mandatory="y" />
+			<column name="nombre" type="varchar" length="30" jt="12" mandatory="y" />
+			<column name="apellido" type="varchar" length="30" jt="12" mandatory="y" />
+			<column name="ciudad" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="clave" type="varchar" length="45" jt="12" mandatory="y" />
+			<column name="correo" type="varchar" length="50" jt="12" mandatory="y" />
+			<index name="pk_usuario" unique="PRIMARY_KEY" >
+				<column name="id_usuario" />
+			</index>
+		</table>
+		<table name="usuario_bitacora" >
+			<column name="accion" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="fecha" type="timestamp" jt="93" mandatory="y" />
+			<column name="id_usuario" type="integer" jt="4" mandatory="y" />
+			<column name="nombre" type="varchar" length="30" jt="12" mandatory="y" />
+			<column name="apellido" type="varchar" length="30" jt="12" mandatory="y" />
+			<column name="ciudad" type="varchar" length="30" jt="12" mandatory="y" />
+			<column name="clave" type="varchar" length="30" jt="12" mandatory="y" />
+			<column name="correo" type="varchar" jt="12" mandatory="y" />
+		</table>
+		<table name="usuario_rol" >
+			<column name="tabla_usuario" type="integer" jt="4" mandatory="y" />
+			<column name="tabla_rol" type="integer" jt="4" mandatory="y" />
+			<column name="fecha_inicio" type="date" jt="91" />
+			<column name="fecha_fin" type="date" jt="91" />
+			<column name="activo" type="bool" jt="-7" mandatory="y" />
+			<index name="idx_usuario_rol" unique="NORMAL" >
+				<column name="tabla_usuario" />
+			</index>
+			<index name="idx_usuario_rol_0" unique="NORMAL" >
+				<column name="tabla_rol" />
+			</index>
+			<fk name="fk_usuario_rol_usuario" to_schema="sesion_tbd" to_table="usuario" delete_action="cascade" update_action="cascade" >
+				<fk_column name="tabla_usuario" pk="id_usuario" />
+			</fk>
+			<fk name="fk_usuario_rol_rol" to_schema="sesion_tbd" to_table="rol" delete_action="cascade" update_action="cascade" >
+				<fk_column name="tabla_rol" pk="id_rol" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout_42ecbf0" show_relation="columns" >
+		<entity schema="sesion_tbd" name="sesion" color="c1d8ee" x="48" y="336" />
+		<entity schema="sesion_tbd" name="usuario_bitacora" color="c1d8ee" x="256" y="464" />
+		<entity schema="sesion_tbd" name="funcion_iu" color="c1d8ee" x="896" y="96" />
+		<entity schema="sesion_tbd" name="usuario" color="c1d8ee" x="48" y="48" />
+		<entity schema="sesion_tbd" name="rol_funcion" color="c1d8ee" x="624" y="320" />
+		<entity schema="sesion_tbd" name="usuario_rol" color="c1d8ee" x="368" y="48" />
+		<entity schema="sesion_tbd" name="rol" color="c1d8ee" x="384" y="320" />
+		<entity schema="sesion_tbd" name="funcion" color="c1d8ee" x="640" y="96" />
+		<entity schema="sesion_tbd" name="iu" color="c1d8ee" x="912" y="336" />
+	</layout>
+</project>
